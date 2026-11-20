@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Devki International | Corporate Event Planning & Luxury Weddings in Kolkata</title>
+  <meta name="description" content="Devki International (devkiinternational.co.in) — Premier Corporate Event Management & Luxury Wedding Planners in Kolkata, Salt Lake & New Town. Contact us on WhatsApp." />
+
+  <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Custom Palette & Typography -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            royal: '#160B11',
+            royalDark: '#0e060b',
+            maroon: '#4A0E24',
+            maroonLight: '#6B1736',
+            maroonBright: '#851c43',
+            emeraldDeep: '#0D2B26',
+            champagne: '#C8A252',
+            champagneLight: '#E5C985',
+            champagneGlow: '#FFF0C7',
+            ivory: '#FAF7F2',
+            ivoryDark: '#F1EBE1',
+            slateDark: '#1F1A1D',
+            mutedText: '#5C5357',
+            whatsapp: '#25D366',
+            whatsappDark: '#1EBE5D'
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          boxShadow: {
+            'luxury': '0 20px 50px -15px rgba(22, 11, 17, 0.18)',
+            'gold': '0 10px 30px -10px rgba(200, 162, 82, 0.45)',
+            'gold-lg': '0 20px 40px -12px rgba(200, 162, 82, 0.55)',
+            'card-hover': '0 25px 50px -12px rgba(74, 14, 36, 0.15)',
+          },
+          animation: {
+            'float-slow': 'float 6s ease-in-out infinite',
+            'float-reverse': 'floatRev 7s ease-in-out infinite',
+            'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+            'shimmer': 'shimmer 2.5s infinite',
+            'sparkle': 'sparkle 2s ease-in-out infinite alternate',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+              '50%': { transform: 'translateY(-12px) rotate(2deg)' },
+            },
+            floatRev: {
+              '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+              '50%': { transform: 'translateY(10px) rotate(-2deg)' },
+            },
+            pulseGlow: {
+              '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+              '50%': { opacity: '0.8', transform: 'scale(1.05)' },
+            },
+            shimmer: {
+              '100%': { transform: 'translateX(100%)' },
+            },
+            sparkle: {
+              '0%': { opacity: '0.3', transform: 'scale(0.8)' },
+              '100%': { opacity: '1', transform: 'scale(1.2)' },
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    body {
+      background-color: #FAF7F2;
+      color: #1F1A1D;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Subtle gold shimmer border */
+    .gold-border-gradient {
+      border: 1px solid rgba(200, 162, 82, 0.35);
+      position: relative;
+    }
+    .gold-border-gradient:hover {
+      border-color: rgba(200, 162, 82, 0.7);
+    }
+
+    /* Custom subtle geometric lattice overlay */
+    .royal-lattice {
+      background-image: radial-gradient(rgba(200, 162, 82, 0.18) 1.2px, transparent 1.2px);
+      background-size: 26px 26px;
+    }
+
+    /* Animated Gold Shimmer Button Effect */
+    .btn-shimmer {
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-shimmer::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(
+        60deg,
+        rgba(255, 255, 255, 0) 20%,
+        rgba(255, 255, 255, 0.4) 50%,
+        rgba(255, 255, 255, 0) 80%
+      );
+      transform: rotate(25deg);
+      animation: btnShine 4s infinite ease-in-out;
+    }
+    @keyframes btnShine {
+      0% { left: -70%; }
+      30%, 100% { left: 150%; }
+    }
+
+    /* Glowing ambient gold gradient */
+    .hero-glow {
+      background: radial-gradient(circle at 50% 30%, rgba(200, 162, 82, 0.22) 0%, transparent 65%);
+    }
+
+    /* Interactive live ribbon ticker */
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 32s linear infinite;
+    }
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    /* Scroll reveal animations */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .reveal-on-scroll.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Floating particles background canvas */
+    #ambient-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Custom luxury gold text gradient */
+    .gold-text-gradient {
+      background: linear-gradient(135deg, #FFF0C7 0%, #E5C985 40%, #C8A252 80%, #9E7D33 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Live pill pulsation */
+    .live-dot {
+      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+      animation: livePulse 2s infinite;
+    }
+    @keyframes livePulse {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+      70% { box-shadow: 0 0 0 8px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-maroon selection:text-white">
+
+  <!-- ==================== LIVE ANNOUNCEMENT TOP BANNER ==================== -->
+  <aside aria-label="Seasonal Booking Offer" class="bg-gradient-to-r from-maroon via-royal to-emeraldDeep text-white text-xs py-2 px-4 border-b border-champagne/30 overflow-hidden relative z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+      <div class="flex items-center gap-2 overflow-hidden whitespace-nowrap">
+        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-champagne/20 text-champagneLight font-bold text-[10px] uppercase tracking-wider">
+          <span class="w-2 h-2 rounded-full bg-champagneLight animate-ping"></span>
+          Now Booking
+        </span>
+        <span class="text-white/90 truncate font-medium text-[11px] sm:text-xs">
+          Winter &amp; Spring 2026-2027 Wedding &amp; Corporate Dates Available Across Kolkata
+        </span>
+      </div>
+      <a
+        href="https://wa.me/918961440424?text=Hello%20Devki%20International!%20I%20am%20checking%20date%20availability%20for%20my%20upcoming%20event."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hidden sm:inline-flex items-center gap-1 text-champagneLight hover:text-white font-semibold text-xs whitespace-nowrap transition-colors"
+      >
+        <span>Check Date Availability</span>
+        <span>→</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ==================== 1. STICKY NAVIGATION BAR ==================== -->
+  <header class="sticky top-0 z-40 bg-royal/95 backdrop-blur-md border-b border-champagne/25 text-white transition-all duration-300 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        
+        <!-- Brand Identity -->
+        <a href="#home" class="flex items-center gap-3.5 group focus:outline-none">
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-champagne to-champagneLight text-royal flex items-center justify-center shadow-gold group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shrink-0">
+            <!-- Royal Crest Monogram SVG -->
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L15 8L21 9L16.5 14L17.5 20L12 17L6.5 20L7.5 14L3 9L9 8L12 2Z" />
+            </svg>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-serif text-2xl sm:text-[26px] font-bold tracking-wide text-white leading-none">
+                Devki <span class="text-champagneLight italic">International</span>
+              </span>
+            </div>
+            <div class="flex items-center gap-2 mt-1">
+              <span class="text-[11px] font-medium tracking-wider text-champagneLight/90">devkiinternational.co.in</span>
+              <span class="text-white/30">•</span>
+              <span class="text-[10px] uppercase tracking-widest text-white/70 font-semibold flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Kolkata
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-white/85">
+          <a href="#home" class="hover:text-champagneLight transition-colors py-2 relative group">
+            Home
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-champagneLight transition-all group-hover:w-full"></span>
+          </a>
+          <a href="#what-we-offer" class="hover:text-champagneLight transition-colors py-2 relative group">
+            What We Offer
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-champagneLight transition-all group-hover:w-full"></span>
+          </a>
+          <a href="#portfolio-gallery" class="hover:text-champagneLight transition-colors py-2 relative group">
+            Gallery Showcase
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-champagneLight transition-all group-hover:w-full"></span>
+          </a>
+          <a href="#signature-events" class="hover:text-champagneLight transition-colors py-2 relative group">
+            Inquiry &amp; Why Us
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-champagneLight transition-all group-hover:w-full"></span>
+          </a>
+
+          <a href="#location" class="hover:text-champagneLight transition-colors py-2 relative group">
+            Location
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-champagneLight transition-all group-hover:w-full"></span>
+          </a>
+        </nav>
+
+        <!-- Desktop Direct WhatsApp CTA & Phone desk -->
+        <div class="hidden md:flex items-center gap-4">
+          <a href="tel:+918961440424" class="text-xs text-champagneLight hover:text-white flex items-center gap-1.5 transition-colors">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            <span class="font-semibold">+91 89614 40424</span>
+          </a>
+
+          <a
+            href="https://wa.me/918961440424?text=Hello%20Devki%20International%20(devkiinternational.co.in)!%20I%20would%20like%20to%20inquire%20about%20planning%20an%20event%20in%20Kolkata."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-shimmer inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-whatsapp hover:bg-whatsappDark text-white font-semibold text-sm shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5"
+          >
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/>
+            </svg>
+            <span>WhatsApp Us</span>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-btn" class="lg:hidden p-2.5 rounded-xl text-white hover:bg-white/10 focus:outline-none transition-colors" aria-label="Toggle Menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-royal border-t border-champagne/20 px-4 pt-3 pb-6 space-y-2">
+      <a href="#home" onclick="closeMobileMenu()" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-white/90 hover:bg-white/10">Home</a>
+      <a href="#what-we-offer" onclick="closeMobileMenu()" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-white/90 hover:bg-white/10">What We Offer</a>
+      <a href="#portfolio-gallery" onclick="closeMobileMenu()" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-white/90 hover:bg-white/10">Live Portfolio Gallery</a>
+      <a href="#signature-events" onclick="closeMobileMenu()" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-white/90 hover:bg-white/10">Instant Inquiry &amp; Why Us</a>
+
+      <a href="#location" onclick="closeMobileMenu()" class="block px-4 py-2.5 rounded-xl text-sm font-medium text-white/90 hover:bg-white/10">Location &amp; Google Maps</a>
+      <div class="pt-2">
+        <a
+          href="https://wa.me/918961440424?text=Hello%20Devki%20International!%20I%20would%20like%20to%20discuss%20an%20upcoming%20event%20in%20Kolkata."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-whatsapp text-white font-bold text-sm shadow-md"
+        >
+          <span>WhatsApp Us Now</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== 2. HERO SECTION WITH CANVAS & FLOATING BADGES ==================== -->
+  <section id="home" class="relative bg-royal text-white overflow-hidden min-h-[90vh] flex items-center">
+    <!-- Interactive Background Canvas for subtle golden dust particles -->
+    <canvas id="ambient-canvas"></canvas>
+
+    <!-- Background Image with Royal Maroon & Emerald Overlay -->
+    <div class="absolute inset-0 pointer-events-none">
+      <img
+        src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1800&q=80"
+        alt="Grand Luxury Wedding & Corporate Gala Setup in Kolkata"
+        onerror="this.onerror=null;this.src='https://placehold.co/1600x900/4A0E24/E5C985?text=Devki+International+Kolkata';"
+        class="w-full h-full object-cover object-center opacity-30 scale-105 transition-transform duration-1000"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-royal via-maroon/90 to-emeraldDeep/85"></div>
+      <div class="absolute inset-0 royal-lattice opacity-55"></div>
+      <div class="absolute inset-0 hero-glow pointer-events-none"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-28 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Hero Content -->
+        <div class="lg:col-span-7 space-y-6">
+          <!-- Domain & Location Pill with Live Pulse -->
+          <div class="inline-flex flex-wrap items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 border border-champagne/40 backdrop-blur-md text-champagneLight text-xs font-semibold tracking-wider uppercase shadow-inner">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 live-dot"></span>
+            <span>Kolkata's Premier Event Curators</span>
+            <span class="text-white/40">|</span>
+            <span class="font-medium text-white/90">Devki International</span>
+          </div>
+
+          <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.12] tracking-tight text-white">
+            Crafting Unforgettable <span class="gold-text-gradient italic">Weddings</span> &amp; Flawless <span class="gold-text-gradient italic">Corporate Summits</span> in Kolkata.
+          </h1>
+
+          <p class="text-base sm:text-lg text-white/85 leading-relaxed max-w-2xl font-light">
+            From regal Bengali &amp; Marwari weddings at Taj Bengal &amp; heritage Rajbaris to high-impact corporate conclaves across Salt Lake Sector V and New Town—<strong>Devki International</strong> brings visionary design, turnkey production, and discreet VIP hospitality.
+          </p>
+
+          <!-- Primary & Secondary Hero CTAs -->
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-3">
+            <a
+              href="https://wa.me/918961440424?text=Hello%20Devki%20International%20(devkiinternational.co.in)!%20I%20would%20like%20a%20consultation%20for%20an%20event%20in%20Kolkata."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-shimmer inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-whatsapp hover:bg-whatsappDark text-white font-bold text-base shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1"
+            >
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/>
+              </svg>
+              <span>Instant Consultation on WhatsApp</span>
+            </a>
+
+            <a
+              href="#what-we-offer"
+              class="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-2xl bg-white/10 hover:bg-white/20 text-white border border-champagne/50 font-semibold text-base backdrop-blur-md transition-all hover:border-champagneLight"
+            >
+              <span>Explore What We Offer</span>
+              <span class="animate-bounce">↓</span>
+            </a>
+          </div>
+
+          <!-- Fast Highlights tags -->
+          <div class="flex flex-wrap items-center gap-3 pt-2 text-xs text-white/75">
+            <span class="flex items-center gap-1.5"><span class="text-champagneLight">✦</span> 100% In-House Production</span>
+            <span class="flex items-center gap-1.5"><span class="text-champagneLight">✦</span> Zero Hidden Costs</span>
+            <span class="flex items-center gap-1.5"><span class="text-champagneLight">✦</span> 5-Star Hotel Preferred Partners</span>
+          </div>
+        </div>
+
+        <!-- Right Hero Floating Visual Showcase Card -->
+        <div class="lg:col-span-5 relative hidden sm:block">
+          <!-- Ambient Glow Orb behind cards -->
+          <div class="absolute -top-10 -right-10 w-72 h-72 bg-champagne/20 rounded-full blur-3xl pointer-events-none animate-pulse-glow"></div>
+          <div class="absolute -bottom-10 -left-10 w-72 h-72 bg-maroonLight/30 rounded-full blur-3xl pointer-events-none"></div>
+
+          <!-- Main Feature Stack Card -->
+          <div class="relative z-10 bg-gradient-to-b from-white/15 to-white/5 backdrop-blur-xl p-6 rounded-3xl border border-champagne/40 shadow-luxury animate-float-slow">
+            <div class="relative h-64 rounded-2xl overflow-hidden mb-5">
+              <img
+                src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=800&q=80"
+                alt="Devki International Gala Stage Kolkata"
+                class="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-royal/80 via-transparent to-transparent"></div>
+              <span class="absolute bottom-3 left-4 px-3 py-1 rounded-full bg-maroon/90 text-champagneLight text-[11px] font-bold tracking-wider uppercase border border-champagne/40 backdrop-blur-xs">
+                Signature Production
+              </span>
+            </div>
+
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs uppercase tracking-widest text-champagneLight font-semibold">Devki Masterclass</span>
+                <span class="text-xs text-white/80">Kolkata, WB</span>
+              </div>
+              <h3 class="font-serif text-2xl font-bold text-white">ITC Royal Bengal &amp; Rajbari Conclaves</h3>
+              <p class="text-xs text-white/75 leading-relaxed">
+                Comprehensive 360° hospitality, artist management, and custom thematic staging designed to leave guests breathless.
+              </p>
+            </div>
+          </div>
+
+          <!-- Floating Micro Badge 1 (Top Left) -->
+          <div class="absolute -top-6 -left-6 z-20 bg-royal/90 backdrop-blur-md px-4 py-2.5 rounded-2xl border border-champagne/50 shadow-gold flex items-center gap-3 animate-float-reverse">
+            <div class="w-8 h-8 rounded-xl bg-champagne text-royal flex items-center justify-center font-bold text-sm">★</div>
+            <div>
+              <p class="text-xs font-bold text-white leading-tight">500+ Milestones</p>
+              <p class="text-[10px] text-champagneLight">Crafted in West Bengal</p>
+            </div>
+          </div>
+
+          <!-- Floating Micro Badge 2 (Bottom Right) -->
+          <div class="absolute -bottom-5 -right-4 z-20 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-2xl border border-champagne/50 shadow-gold flex items-center gap-3">
+            <div class="w-3 h-3 rounded-full bg-whatsapp live-dot"></div>
+            <div>
+              <p class="text-xs font-bold text-royal leading-tight">Live On WhatsApp</p>
+              <p class="text-[10px] text-mutedText">&lt; 15 min typical response</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Trust Stats Bar with Counter Animations -->
+      <div class="mt-14 pt-8 border-t border-champagne/25 grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white/5 hover:bg-white/10 transition-colors backdrop-blur-md rounded-2xl p-5 border border-white/10 text-center sm:text-left group">
+          <p class="font-serif text-3xl sm:text-4xl font-bold text-champagneLight group-hover:scale-105 transition-transform inline-block">
+            <span class="counter" data-target="500">0</span>+
+          </p>
+          <p class="text-xs sm:text-sm text-white/80 mt-1 font-medium">Events Executed Flawlessly</p>
+        </div>
+        <div class="bg-white/5 hover:bg-white/10 transition-colors backdrop-blur-md rounded-2xl p-5 border border-white/10 text-center sm:text-left group">
+          <p class="font-serif text-3xl sm:text-4xl font-bold text-champagneLight group-hover:scale-105 transition-transform inline-block">Dual Focus</p>
+          <p class="text-xs sm:text-sm text-white/80 mt-1 font-medium">Corporate Summits &amp; Weddings</p>
+        </div>
+        <div class="bg-white/5 hover:bg-white/10 transition-colors backdrop-blur-md rounded-2xl p-5 border border-white/10 text-center sm:text-left group">
+          <p class="font-serif text-3xl sm:text-4xl font-bold text-champagneLight group-hover:scale-105 transition-transform inline-block">
+            <span class="counter" data-target="100">0</span>%
+          </p>
+          <p class="text-xs sm:text-sm text-white/80 mt-1 font-medium">Turnkey 360° In-House Execution</p>
+        </div>
+        <div class="bg-white/5 hover:bg-white/10 transition-colors backdrop-blur-md rounded-2xl p-5 border border-white/10 text-center sm:text-left group">
+          <p class="font-serif text-3xl sm:text-4xl font-bold text-champagneLight group-hover:scale-105 transition-transform inline-block">Pan-India</p>
+          <p class="text-xs sm:text-sm text-white/80 mt-1 font-medium">Kolkata Roots &amp; Beyond</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MARQUEE VENUES & PARTNERS RIBBON ==================== -->
+  <section class="py-5 bg-royalDark text-white border-y border-champagne/25 overflow-hidden select-none">
+    <div class="marquee-track flex items-center gap-10 text-xs sm:text-sm font-semibold tracking-wider text-champagneLight/80 uppercase">
+      <span class="flex items-center gap-2"><span class="text-champagne">✦</span> ITC Royal Bengal</span>
+      <span class="flex items-center gap-2"><span class="text-champagne">✦</span> JW Marriott Kolkata</span>
+      <span class="flex items-center gap-2"><span class="text-champagne">✦</span> Taj Bengal Alipore</span>
+      <span class="flex items-center gap-2"><span class="text-champagne">✦</span> The Oberoi Grand</span>
+      <span class="flex items-center gap-2"><span class="text-champagne">✦</span> Biswa Bangla Convention Centre</span>
+      <span class="flex items-center gap-2"><span class="text-champagne">✦</span> Eco Park &amp; Milan Mela</span>
+      <span class="flex items-center gap-2"><span class="text-champagne">✦</span> Rajbari Bawali &amp; Heritage Estates</span>
+      <span class="flex items-center gap-2"><span class="text-champagne">✦</span> Salt Lake Sector V Tech Summits</span>
+      <span class="flex items-center gap-2"><span class="text-champagne">✦</span> New Town Kolkata Hub</span>
+      <!-- Duplicate for seamless looping -->
+      <span class="flex items-center gap-2"><span class="text-champagne">✦</span> ITC Royal Bengal</span>
+      <span class="flex items-center gap-2"><span class="text-champagne">✦</span> JW Marriott Kolkata</span>
+      <span class="flex items-center gap-2"><span class="text-champagne">✦</span> Taj Bengal Alipore</span>
+      <span class="flex items-center gap-2"><span class="text-champagne">✦</span> The Oberoi Grand</span>
+      <span class="flex items-center gap-2"><span class="text-champagne">✦</span> Biswa Bangla Convention Centre</span>
+      <span class="flex items-center gap-2"><span class="text-champagne">✦</span> Eco Park &amp; Milan Mela</span>
+      <span class="flex items-center gap-2"><span class="text-champagne">✦</span> Rajbari Bawali &amp; Heritage Estates</span>
+      <span class="flex items-center gap-2"><span class="text-champagne">✦</span> Salt Lake Sector V Tech Summits</span>
+      <span class="flex items-center gap-2"><span class="text-champagne">✦</span> New Town Kolkata Hub</span>
+    </div>
+  </section>
+
+  <!-- ==================== 3. WHAT WE OFFER SECTION ==================== -->
+  <section id="what-we-offer" class="py-24 bg-ivory relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Heading -->
+      <div class="text-center max-w-3xl mx-auto mb-14 reveal-on-scroll">
+        <span class="inline-block px-3.5 py-1 rounded-full bg-maroon/10 text-maroon text-xs font-bold uppercase tracking-[0.2em]">
+          What We Offer
+        </span>
+        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-royal mt-3">
+          Bespoke Corporate &amp; Wedding Solutions
+        </h2>
+        <p class="text-mutedText text-sm sm:text-base mt-3 leading-relaxed">
+          Whether you are hosting an executive summit in New Town or a multi-day royal wedding celebration in Kolkata, explore our specialized services below and request an instant quote on WhatsApp.
+        </p>
+      </div>
+
+      <!-- Interactive Category Filter Tabs -->
+      <div class="flex flex-wrap items-center justify-center gap-3 mb-12">
+        <button
+          onclick="filterServices('all')"
+          id="tab-all"
+          class="service-tab px-6 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 bg-maroon text-white shadow-md transform hover:-translate-y-0.5"
+        >
+          All Services (6)
+        </button>
+        <button
+          onclick="filterServices('wedding')"
+          id="tab-wedding"
+          class="service-tab px-6 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 bg-white text-slateDark hover:bg-ivoryDark border border-champagne/35 transform hover:-translate-y-0.5"
+        >
+          Luxury Weddings &amp; Hospitality
+        </button>
+        <button
+          onclick="filterServices('corporate')"
+          id="tab-corporate"
+          class="service-tab px-6 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 bg-white text-slateDark hover:bg-ivoryDark border border-champagne/35 transform hover:-translate-y-0.5"
+        >
+          Corporate Events &amp; MICE
+        </button>
+      </div>
+
+      <!-- 6-Card Services Grid with Rich Hover Effects -->
+      <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Rendered cleanly by JS for interactive filtering & dynamic WhatsApp links -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== LIVE PORTFOLIO GALLERY SHOWCASE ==================== -->
+  <section id="portfolio-gallery" class="py-24 bg-royal text-white relative overflow-hidden">
+    <div class="absolute inset-0 royal-lattice opacity-40 pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+        <div>
+          <span class="inline-block px-3 py-1 rounded-full bg-champagne/20 text-champagneLight text-xs font-bold uppercase tracking-wider mb-2">
+            Visual Portfolio
+          </span>
+          <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white">
+            Curated Glimpses of <span class="gold-text-gradient italic">Excellence</span>
+          </h2>
+          <p class="text-sm text-white/70 mt-2 max-w-xl">
+            A visual walk through signature mandaps, tech stage fabrication, elegant ballroom banquets, and grand entries managed by Devki International.
+          </p>
+        </div>
+
+        <!-- Filter Tags for Gallery -->
+        <div class="flex flex-wrap gap-2">
+          <button onclick="filterGallery('all')" class="gallery-tab px-4 py-2 rounded-lg text-xs font-semibold bg-champagne text-royal font-bold transition">All Highlights</button>
+          <button onclick="filterGallery('weddings')" class="gallery-tab px-4 py-2 rounded-lg text-xs font-semibold bg-white/10 text-white hover:bg-white/20 transition">Weddings</button>
+          <button onclick="filterGallery('corporate')" class="gallery-tab px-4 py-2 rounded-lg text-xs font-semibold bg-white/10 text-white hover:bg-white/20 transition">Corporate &amp; Staging</button>
+        </div>
+      </div>
+
+      <!-- Dynamic Gallery Grid -->
+      <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Item 1 -->
+        <div class="gallery-item group relative h-80 rounded-2xl overflow-hidden shadow-luxury border border-champagne/30" data-cat="weddings">
+          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Royal Wedding Mandap Kolkata" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-royal via-royal/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+          <div class="absolute bottom-5 left-5 right-5">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-champagneLight">Royal Mandap Design</span>
+            <h4 class="font-serif text-xl font-bold text-white mt-1">Marquee Bengali Wedding at Taj Bengal</h4>
+            <p class="text-xs text-white/75 mt-1">Opulent marigold &amp; tuberose architecture with warm ambient candle-wash lighting.</p>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="gallery-item group relative h-80 rounded-2xl overflow-hidden shadow-luxury border border-champagne/30" data-cat="corporate">
+          <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80" alt="Corporate Conclave Salt Lake" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-royal via-royal/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+          <div class="absolute bottom-5 left-5 right-5">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-champagneLight">Tech Summit Production</span>
+            <h4 class="font-serif text-xl font-bold text-white mt-1">Salt Lake Sector V Annual Tech Conclave</h4>
+            <p class="text-xs text-white/75 mt-1">Full 4K curved LED backdrop, live multi-cam streaming, and synchronized audio.</p>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="gallery-item group relative h-80 rounded-2xl overflow-hidden shadow-luxury border border-champagne/30" data-cat="weddings">
+          <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80" alt="Sangeet Night Lighting Kolkata" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-royal via-royal/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+          <div class="absolute bottom-5 left-5 right-5">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-champagneLight">Sangeet &amp; Entertainment</span>
+            <h4 class="font-serif text-xl font-bold text-white mt-1">Heritage Rajbari Grand Sangeet Night</h4>
+            <p class="text-xs text-white/75 mt-1">Illuminated fairy arches, custom dance floor, and live folk fusion band setup.</p>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="gallery-item group relative h-80 rounded-2xl overflow-hidden shadow-luxury border border-champagne/30" data-cat="corporate">
+          <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=800&q=80" alt="Product Launch Exhibition Kolkata" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-royal via-royal/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+          <div class="absolute bottom-5 left-5 right-5">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-champagneLight">Brand Activation</span>
+            <h4 class="font-serif text-xl font-bold text-white mt-1">Biswa Bangla Auto Expo Showcase</h4>
+            <p class="text-xs text-white/75 mt-1">Modular architectural stall, interactive touchscreens, and delegate lounge.</p>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="gallery-item group relative h-80 rounded-2xl overflow-hidden shadow-luxury border border-champagne/30" data-cat="weddings">
+          <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80" alt="Luxury Reception Banquet Setup" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-royal via-royal/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+          <div class="absolute bottom-5 left-5 right-5">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-champagneLight">Banquet Aesthetics</span>
+            <h4 class="font-serif text-xl font-bold text-white mt-1">ITC Royal Bengal Gala Reception</h4>
+            <p class="text-xs text-white/75 mt-1">Crystal chandelier arrays, tailored linens, and curated gourmet dining seating.</p>
+          </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="gallery-item group relative h-80 rounded-2xl overflow-hidden shadow-luxury border border-champagne/30" data-cat="corporate">
+          <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80" alt="Awards Night Gala" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-royal via-royal/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+          <div class="absolute bottom-5 left-5 right-5">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-champagneLight">Annual Awards Gala</span>
+            <h4 class="font-serif text-xl font-bold text-white mt-1">Corporate Excellence Recognition Night</h4>
+            <p class="text-xs text-white/75 mt-1">Red carpet arrival, celebrity host facilitation, and dramatic reveal effects.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 4. SIGNATURE EVENTS & WHY US + INSTANT WHATSAPP INQUIRY ==================== -->
+  <section id="signature-events" class="py-24 bg-ivoryDark/70 border-y border-champagne/25 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- Left Column: Why Us & Kolkata Venues Coverage -->
+        <div id="why-us" class="lg:col-span-6 space-y-6">
+          <span class="inline-block px-3.5 py-1 rounded-full bg-maroon/10 text-maroon text-xs font-bold uppercase tracking-[0.2em]">
+            Why Devki International
+          </span>
+          <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-royal leading-tight">
+            Trusted by Kolkata's Leading Corporates &amp; Discerning Families.
+          </h2>
+          <p class="text-mutedText text-sm sm:text-base leading-relaxed">
+            At <strong class="text-royal">Devki International (devkiinternational.co.in)</strong>, every event is treated as a signature production. Our dedicated Kolkata on-ground team bridges creative aesthetics with military-grade logistics—so you remain a relaxed host while we manage every vendor, timeline, and guest touchpoint.
+          </p>
+
+          <!-- Interactive Accordion Feature for deeper immersion -->
+          <div class="space-y-3 pt-2">
+            <div class="bg-white rounded-2xl gold-border-gradient p-5 shadow-sm cursor-pointer transition-all hover:shadow-md" onclick="toggleFaq(1)">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <span class="w-8 h-8 rounded-lg bg-maroon/10 text-maroon font-bold flex items-center justify-center text-sm">01</span>
+                  <h3 class="font-bold text-royal text-base">Kolkata Venue &amp; Heritage Mastery</h3>
+                </div>
+                <span id="faq-icon-1" class="text-champagne font-bold text-lg">−</span>
+              </div>
+              <p id="faq-content-1" class="text-xs sm:text-sm text-mutedText mt-3 pl-11 leading-relaxed">
+                Direct liaison with ITC Royal Bengal, JW Marriott, Taj Bengal, Biswa Bangla Convention Centre, Eco Park, and historic Rajbaris ensuring privileged date holding and effortless load-in permissions.
+              </p>
+            </div>
+
+            <div class="bg-white rounded-2xl gold-border-gradient p-5 shadow-sm cursor-pointer transition-all hover:shadow-md" onclick="toggleFaq(2)">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <span class="w-8 h-8 rounded-lg bg-emeraldDeep/10 text-emeraldDeep font-bold flex items-center justify-center text-sm">02</span>
+                  <h3 class="font-bold text-royal text-base">Transparent Turnkey Itemized Budgets</h3>
+                </div>
+                <span id="faq-icon-2" class="text-champagne font-bold text-lg">+</span>
+              </div>
+              <p id="faq-content-2" class="text-xs sm:text-sm text-mutedText mt-3 pl-11 leading-relaxed hidden">
+                Clear line-item breakdowns for decor, AV staging, food curation, and hospitality with zero hidden surprises or sudden on-day escalations.
+              </p>
+            </div>
+
+            <div class="bg-white rounded-2xl gold-border-gradient p-5 shadow-sm cursor-pointer transition-all hover:shadow-md" onclick="toggleFaq(3)">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <span class="w-8 h-8 rounded-lg bg-champagne/20 text-maroon font-bold flex items-center justify-center text-sm">03</span>
+                  <h3 class="font-bold text-royal text-base">Dedicated Show Directors &amp; Event Planners</h3>
+                </div>
+                <span id="faq-icon-3" class="text-champagne font-bold text-lg">+</span>
+              </div>
+              <p id="faq-content-3" class="text-xs sm:text-sm text-mutedText mt-3 pl-11 leading-relaxed hidden">
+                Single-point contact from initial mood-board and 3D floorplan conceptualization to live on-day protocol, artist cueing, and post-event wrap-up.
+              </p>
+            </div>
+
+            <div class="bg-white rounded-2xl gold-border-gradient p-5 shadow-sm cursor-pointer transition-all hover:shadow-md" onclick="toggleFaq(4)">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <span class="w-8 h-8 rounded-lg bg-maroon/10 text-maroon font-bold flex items-center justify-center text-sm">04</span>
+                  <h3 class="font-bold text-royal text-base">In-House Custom Fabrication &amp; Concert AV</h3>
+                </div>
+                <span id="faq-icon-4" class="text-champagne font-bold text-lg">+</span>
+              </div>
+              <p id="faq-content-4" class="text-xs sm:text-sm text-mutedText mt-3 pl-11 leading-relaxed hidden">
+                Own inventory of aluminum trusses, concert-grade sound, high-density LED walls, and expert wood/metal fabricators for regal mandaps and corporate stages.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Quick Interactive WhatsApp Inquiry Builder Card with live estimate hint -->
+        <div class="lg:col-span-6">
+          <div class="bg-gradient-to-br from-royal via-slateDark to-maroon text-white rounded-3xl p-7 sm:p-10 shadow-luxury border border-champagne/40 relative overflow-hidden">
+            <div class="absolute inset-0 royal-lattice opacity-30 pointer-events-none"></div>
+
+            <div class="relative z-10 space-y-5">
+              <div class="flex items-center justify-between flex-wrap gap-2">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-champagne/20 text-champagneLight text-xs font-bold uppercase tracking-wider">
+                  <span class="w-2 h-2 rounded-full bg-whatsapp animate-ping"></span>
+                  Fast Response • Direct Desk
+                </span>
+                <span class="text-[11px] text-white/70">Kolkata Head Office</span>
+              </div>
+
+              <div>
+                <h3 class="font-serif text-2xl sm:text-3xl font-bold text-white">
+                  Instant WhatsApp Inquiry Builder
+                </h3>
+                <p class="text-xs sm:text-sm text-white/75 mt-1">
+                  Fill in a few quick details to generate a formatted inquiry message and connect instantly with our Senior Event Director on WhatsApp.
+                </p>
+              </div>
+
+              <form id="whatsapp-inquiry-form" onsubmit="handleWhatsAppInquiry(event)" class="space-y-4">
+                <div>
+                  <label for="inq-name" class="block text-xs font-semibold text-champagneLight mb-1.5">Your Name / Organization *</label>
+                  <input
+                    type="text"
+                    id="inq-name"
+                    required
+                    placeholder="e.g., Rohan Sen / Apex Tech Kolkata"
+                    class="w-full px-4 py-3 rounded-xl bg-white/10 border border-champagne/35 text-white placeholder-white/45 text-sm focus:outline-none focus:border-champagneLight focus:bg-white/15 transition-all"
+                  />
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label for="inq-type" class="block text-xs font-semibold text-champagneLight mb-1.5">Event Type *</label>
+                    <select
+                      id="inq-type"
+                      class="w-full px-4 py-3 rounded-xl bg-slateDark border border-champagne/35 text-white text-sm focus:outline-none focus:border-champagneLight"
+                    >
+                      <option value="Luxury Wedding Planning & Decor">Luxury Wedding</option>
+                      <option value="Corporate Conference / Summit">Corporate Conference</option>
+                      <option value="Wedding Reception / Sangeet">Reception / Sangeet</option>
+                      <option value="Product Launch / Brand Activation">Product Launch</option>
+                      <option value="Destination Wedding & Hospitality">Destination Wedding</option>
+                      <option value="Exhibition Stall / MICE Event">Exhibition / MICE</option>
+                      <option value="Other Special Event">Other Event</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label for="inq-guests" class="block text-xs font-semibold text-champagneLight mb-1.5">Approx. Guest Count *</label>
+                    <select
+                      id="inq-guests"
+                      class="w-full px-4 py-3 rounded-xl bg-slateDark border border-champagne/35 text-white text-sm focus:outline-none focus:border-champagneLight"
+                    >
+                      <option value="50 – 150 Guests">50 – 150 Guests</option>
+                      <option value="150 – 300 Guests" selected>150 – 300 Guests</option>
+                      <option value="300 – 600 Guests">300 – 600 Guests</option>
+                      <option value="600+ Guests (Grand Scale)">600+ Guests (Grand Scale)</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label for="inq-date" class="block text-xs font-semibold text-champagneLight mb-1.5">Preferred Date / Month</label>
+                    <input
+                      type="text"
+                      id="inq-date"
+                      placeholder="e.g., Dec 2026 / Nov Wedding Season"
+                      class="w-full px-4 py-3 rounded-xl bg-white/10 border border-champagne/35 text-white placeholder-white/45 text-sm focus:outline-none focus:border-champagneLight focus:bg-white/15 transition-all"
+                    />
+                  </div>
+
+                  <div>
+                    <label for="inq-venue" class="block text-xs font-semibold text-champagneLight mb-1.5">Preferred Kolkata Area / Venue</label>
+                    <input
+                      type="text"
+                      id="inq-venue"
+                      placeholder="e.g., New Town / EM Bypass / Salt Lake"
+                      class="w-full px-4 py-3 rounded-xl bg-white/10 border border-champagne/35 text-white placeholder-white/45 text-sm focus:outline-none focus:border-champagneLight focus:bg-white/15 transition-all"
+                    />
+                  </div>
+                </div>
+
+                <!-- Live Preview Pill -->
+                <div class="p-3 rounded-xl bg-white/5 border border-white/10 text-[11px] text-white/70 flex items-center justify-between">
+                  <span>✨ Direct routing to Senior Event Lead</span>
+                  <span class="text-champagneLight font-semibold">Free Quotation</span>
+                </div>
+
+                <button
+                  type="submit"
+                  class="btn-shimmer w-full py-4 rounded-2xl bg-whatsapp hover:bg-whatsappDark text-white font-bold text-base shadow-lg flex items-center justify-center gap-2.5 transition-all transform hover:-translate-y-0.5 mt-2"
+                >
+                  <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/>
+                  </svg>
+                  <span>Send Inquiry on WhatsApp</span>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ==================== 5. GOOGLE MAPS & KOLKATA OFFICE SECTION ==================== -->
+  <section id="location" class="py-24 bg-ivoryDark/60 border-t border-champagne/25">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="inline-block px-3.5 py-1 rounded-full bg-maroon/10 text-maroon text-xs font-bold uppercase tracking-[0.2em]">
+          Visit Our Kolkata Office
+        </span>
+        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-royal mt-3">
+          Let’s Plan Your Next Milestone Over Chai
+        </h2>
+        <p class="text-mutedText text-sm sm:text-base mt-2">
+          Strategically located in New Town, Kolkata with seamless connectivity for clients across Salt Lake Sector V, Rajarhat, EM Bypass, Park Street &amp; South Kolkata.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Office Contact Card -->
+        <div class="lg:col-span-5 bg-white rounded-3xl p-7 sm:p-9 shadow-luxury gold-border-gradient flex flex-col justify-between space-y-6">
+          <div class="space-y-5">
+            <div>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emeraldDeep/10 text-emeraldDeep text-xs font-bold">
+                <span class="w-2 h-2 rounded-full bg-emeraldDeep"></span>
+                <span>Kolkata Head Office</span>
+              </span>
+              <h3 class="font-serif text-2xl sm:text-3xl font-bold text-royal mt-3">Devki International</h3>
+              <p class="text-xs font-semibold text-maroon tracking-wide mt-0.5">devkiinternational.co.in</p>
+            </div>
+
+            <div class="space-y-4 text-sm">
+              <!-- Address -->
+              <div class="flex items-start gap-3.5">
+                <div class="w-10 h-10 rounded-xl bg-ivoryDark text-maroon flex items-center justify-center shrink-0">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-bold text-royal">Official Office Address</p>
+                  <p class="text-mutedText leading-relaxed">
+                    18, Block-B, 341, Hatiara Road, Pachimpara, New Town, Kolkata, West Bengal 700157
+                  </p>
+                </div>
+              </div>
+
+              <!-- Phone & WhatsApp Numbers -->
+              <div class="flex items-start gap-3.5">
+                <div class="w-10 h-10 rounded-xl bg-ivoryDark text-maroon flex items-center justify-center shrink-0">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                </div>
+                <div class="space-y-1">
+                  <p class="font-bold text-royal">Phone &amp; WhatsApp Desk</p>
+                  <p class="text-mutedText">
+                    Landline: <a href="tel:03335789522" class="font-semibold text-royal hover:text-maroon underline">033-3578-9522</a>
+                  </p>
+                  <p class="text-mutedText">
+                    Mobile / WhatsApp: <a href="tel:+918961440424" class="font-semibold text-royal hover:text-maroon underline">+91 89614 40424</a>
+                  </p>
+                </div>
+              </div>
+
+              <!-- Hours -->
+              <div class="flex items-start gap-3.5">
+                <div class="w-10 h-10 rounded-xl bg-ivoryDark text-maroon flex items-center justify-center shrink-0">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-bold text-royal">Consultation Hours</p>
+                  <p class="text-mutedText">Mon – Sun: 10:00 AM – 8:00 PM</p>
+                </div>
+              </div>
+
+              <!-- Email & Website -->
+              <div class="flex items-start gap-3.5">
+                <div class="w-10 h-10 rounded-xl bg-ivoryDark text-maroon flex items-center justify-center shrink-0">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-bold text-royal">Email &amp; Web</p>
+                  <p class="text-mutedText">
+                    <a href="mailto:info@devkiinternational.co.in" class="hover:text-maroon underline">info@devkiinternational.co.in</a><br />
+                    <a href="https://devkiinternational.co.in" target="_blank" rel="noopener noreferrer" class="text-xs text-royal/80 font-medium hover:underline">devkiinternational.co.in</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="pt-4 border-t border-champagne/25 flex flex-col sm:flex-row gap-3">
+            <a
+              href="https://wa.me/918961440424?text=Hello%20Devki%20International!%20I%20would%20like%20to%20schedule%20a%20meeting%20at%20your%20New%20Town%2C%20Kolkata%20office."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-shimmer flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-whatsapp hover:bg-whatsappDark text-white font-bold text-sm shadow-md transition"
+            >
+              <span>Schedule on WhatsApp</span>
+            </a>
+
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=18+Block-B+341+Hatiara+Road+Pachimpara+New+Town+Kolkata+West+Bengal+700157"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-royal hover:bg-maroon text-white font-semibold text-sm transition"
+            >
+              <span>Open Google Maps ↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Responsive Embedded Google Maps Iframe (New Town, Kolkata 700157) -->
+        <div class="lg:col-span-7 rounded-3xl overflow-hidden shadow-luxury border-4 border-white min-h-[380px] sm:min-h-[440px] bg-ivoryDark">
+          <iframe
+            title="Devki International New Town Kolkata Office - Google Maps"
+            src="https://maps.google.com/maps?q=18%2C%20Block-B%2C%20341%2C%20Hatiara%20Road%2C%20Pachimpara%2C%20New%20Town%2C%20Kolkata%2C%20West%20Bengal%20700157&t=&z=16&ie=UTF8&iwloc=&output=embed"
+            width="100%"
+            height="100%"
+            style="border:0; min-height: 400px;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 6. FOOTER ==================== -->
+  <footer class="bg-royal text-white/80 py-16 border-t border-champagne/25 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+        
+        <!-- Brand Column -->
+        <div class="md:col-span-5 space-y-4">
+          <div class="font-serif text-3xl font-bold text-white">
+            Devki <span class="text-champagneLight italic">International</span>
+          </div>
+          <p class="text-xs font-semibold tracking-wider text-champagneLight uppercase">
+            devkiinternational.co.in
+          </p>
+          <p class="text-sm text-white/70 leading-relaxed max-w-sm">
+            18, Block-B, 341, Hatiara Road, Pachimpara, New Town, Kolkata, West Bengal 700157. Premier Corporate Event Management &amp; Luxury Wedding Planning Company in Eastern India.
+          </p>
+          <div class="pt-1 text-xs text-white/80 space-y-1">
+            <p>Landline: <a href="tel:03335789522" class="hover:text-champagneLight underline">033-3578-9522</a></p>
+            <p>Mobile: <a href="tel:+918961440424" class="hover:text-champagneLight underline">+91 89614 40424</a></p>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="md:col-span-3 space-y-3">
+          <h4 class="text-xs font-bold uppercase tracking-widest text-champagneLight">Quick Navigation</h4>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="#home" class="hover:text-champagneLight transition">Home</a></li>
+            <li><a href="#what-we-offer" class="hover:text-champagneLight transition">What We Offer</a></li>
+            <li><a href="#portfolio-gallery" class="hover:text-champagneLight transition">Gallery Showcase</a></li>
+            <li><a href="#signature-events" class="hover:text-champagneLight transition">Inquiry &amp; Why Us</a></li>
+
+            <li><a href="#location" class="hover:text-champagneLight transition">Location &amp; Maps</a></li>
+          </ul>
+        </div>
+
+        <!-- Kolkata Service Areas -->
+        <div class="md:col-span-4 space-y-3">
+          <h4 class="text-xs font-bold uppercase tracking-widest text-champagneLight">Kolkata &amp; Regional Service Hubs</h4>
+          <p class="text-sm text-white/70 leading-relaxed">
+            New Town • Rajarhat • Salt Lake Sector V • EM Bypass • Park Street • Ballygunge • Alipore • Howrah • Mandarmani, Digha, Puri &amp; Pan-India Destination Venues.
+          </p>
+          <div class="pt-2">
+            <a
+              href="https://wa.me/918961440424?text=Hello%20Devki%20International!%20Connecting%20via%20devkiinternational.co.in."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-sm font-bold text-whatsapp hover:underline"
+            >
+              <span>WhatsApp Desk: +91 89614 40424 →</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-white/55 gap-3">
+        <p>© 2026 Devki International (devkiinternational.co.in). All rights reserved.</p>
+        <p>Crafted with pride in Kolkata, West Bengal</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== 7. FLOATING WHATSAPP ACTION BUTTON ==================== -->
+  <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3 group">
+    <!-- Tooltip Pill -->
+    <a
+      href="https://wa.me/918961440424?text=Hello%20Devki%20International%20(devkiinternational.co.in)!%20I%20would%20like%20to%20inquire%20about%20an%20event%20in%20Kolkata."
+      target="_blank"
+      rel="noopener noreferrer"
+      class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-royal/95 text-white text-xs font-bold shadow-xl border border-champagne/40 backdrop-blur-md opacity-95 group-hover:opacity-100 transition-all transform group-hover:-translate-x-1"
+    >
+      <span class="w-2 h-2 rounded-full bg-emerald-400 live-dot"></span>
+      <span>Chat with Event Planner</span>
+    </a>
+
+    <!-- Floating Action Button -->
+    <a
+      href="https://wa.me/918961440424?text=Hello%20Devki%20International%20(devkiinternational.co.in)!%20I%20would%20like%20to%20inquire%20about%20an%20event%20in%20Kolkata."
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat with Devki International on WhatsApp"
+      class="btn-shimmer relative w-15 h-15 p-4 rounded-full bg-whatsapp hover:bg-whatsappDark text-white flex items-center justify-center shadow-2xl transition-transform transform hover:scale-110 active:scale-95"
+    >
+      <span class="absolute inset-0 rounded-full bg-whatsapp animate-ping opacity-30 pointer-events-none"></span>
+      <svg class="w-7 h-7 fill-current relative z-10" viewBox="0 0 24 24">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/>
+      </svg>
+    </a>
+  </div>
+
+  <!-- ==================== JAVASCRIPT LOGIC ==================== -->
+  <script>
+    // Official Devki International WhatsApp Business Number
+    const DEVKI_WHATSAPP_NUMBER = "918961440424";
+
+    // Core Services Dataset ('What We Offer')
+    const SERVICES = [
+      {
+        id: 1,
+        title: "Luxury Wedding Planning & Decor",
+        category: "wedding",
+        tag: "Signature Weddings",
+        description: "Bespoke royal mandaps, opulent floral & ambient lighting design, heritage Rajbari setups, and end-to-end wedding hospitality across Kolkata.",
+        highlights: ["Custom Theme & Mandap Design", "Mehendi, Sangeet & Biye Production", "Dedicated Bride & Groom Concierge"],
+        image: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 2,
+        title: "Corporate Conferences & Summits",
+        category: "corporate",
+        tag: "Corporate Excellence",
+        description: "Seamless Annual General Meetings (AGMs), dealer meets, leadership conclaves, and product launches in Salt Lake Sector V, New Town & 5-star ballrooms.",
+        highlights: ["Stage Fabrication & LED Backdrops", "Delegate Registration & Protocol", "High-Fidelity Audio & Live Streaming"],
+        image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 3,
+        title: "Destination Weddings & Hospitality",
+        category: "wedding",
+        tag: "360° Guest Care",
+        description: "Complete guest RSVP management, Netaji Subhas Airport & Howrah station transfers, luxury hotel room blocks, and curated Bengali welcome hampers.",
+        highlights: ["VIP Chauffeur & Logistics Desk", "Pan-India & Coastal Venues", "24/7 Guest Helpdesk Support"],
+        image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 4,
+        title: "Exhibition Stalls & Brand Activations",
+        category: "corporate",
+        tag: "MICE & Brand",
+        description: "High-impact custom exhibition booths at Milan Mela & Biswa Bangla, mall activations, roadshows, and experiential corporate brand showcases.",
+        highlights: ["3D Stall Design & Fabrication", "Promoter Staffing & Lead Capture", "Interactive AV Installations"],
+        image: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 5,
+        title: "Venue Sourcing & Catering Curation",
+        category: "wedding",
+        tag: "Culinary & Venues",
+        description: "Privileged tie-ups with Kolkata's finest 5-star hotels, sprawling EM Bypass lawns, and legendary authentic Bengali & multi-cuisine caterers.",
+        highlights: ["Preferred Corporate & Wedding Rates", "Live Culinary Counters & Bar", "Menu Tasting Sessions & Tasting Coordination"],
+        image: "https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 6,
+        title: "Entertainment, Artist & Sound Management",
+        category: "corporate",
+        tag: "Production & AV",
+        description: "Live Sufi & Bengali bands, celebrity appearances, corporate emcees, concert-grade line-array sound, truss lighting, and seamless show-calling.",
+        highlights: ["Celebrity & Artist Booking", "Intelligent Concert Lighting & LED", "Show Director & Stage Cueing"],
+        image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80"
+      }
+    ];
+
+    let currentFilter = "all";
+
+    // Render Service Cards with enhanced hover micro-interactions
+    function renderServices() {
+      const grid = document.getElementById("services-grid");
+      const filtered = SERVICES.filter(service =>
+        currentFilter === "all" ? true : service.category === currentFilter
+      );
+
+      grid.innerHTML = filtered
+        .map(service => {
+          const prefilledText = encodeURIComponent(
+            `Hello Devki International (devkiinternational.co.in)! I would like to get a quote for *${service.title}* in Kolkata.`
+          );
+          const waLink = `https://wa.me/${DEVKI_WHATSAPP_NUMBER}?text=${prefilledText}`;
+
+          return `
+            <article class="bg-white rounded-3xl overflow-hidden shadow-luxury gold-border-gradient flex flex-col justify-between group hover:-translate-y-2 hover:shadow-card-hover transition-all duration-300">
+              <div>
+                <!-- Service Image with Zoom effect -->
+                <div class="relative h-56 overflow-hidden bg-royal">
+                  <img
+                    src="${service.image}"
+                    alt="${service.title} - Devki International Kolkata"
+                    onerror="this.onerror=null;this.src='https://placehold.co/700x450/4A0E24/E5C985?text=${encodeURIComponent(service.title)}';"
+                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-95"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-royal/80 via-transparent to-transparent"></div>
+                  <span class="absolute top-4 left-4 px-3.5 py-1 rounded-full bg-royal/90 backdrop-blur-md border border-champagne/40 text-champagneLight text-[11px] font-bold uppercase tracking-wider">
+                    ${service.tag}
+                  </span>
+                </div>
+
+                <!-- Card Content -->
+                <div class="p-7">
+                  <h3 class="font-serif text-2xl font-bold text-royal leading-snug group-hover:text-maroon transition-colors">
+                    ${service.title}
+                  </h3>
+                  <p class="text-xs sm:text-sm text-mutedText mt-2.5 leading-relaxed">
+                    ${service.description}
+                  </p>
+
+                  <!-- Bullet Highlights -->
+                  <ul class="mt-4 space-y-2 pt-3 border-t border-champagne/20">
+                    ${service.highlights
+                      .map(
+                        item => `
+                      <li class="flex items-center gap-2.5 text-xs font-semibold text-slateDark/90">
+                        <span class="text-champagne font-bold">✦</span>
+                        <span>${item}</span>
+                      </li>
+                    `
+                      )
+                      .join("")}
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Card Footer: Pre-filled WhatsApp Quote CTA -->
+              <div class="px-7 pb-7 pt-1">
+                <a
+                  href="${waLink}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-shimmer w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-ivoryDark hover:bg-whatsapp text-royal hover:text-white font-bold text-xs sm:text-sm border border-champagne/40 hover:border-whatsapp shadow-sm hover:shadow-md transition-all duration-300"
+                >
+                  <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/>
+                  </svg>
+                  <span>Get Quote on WhatsApp</span>
+                </a>
+              </div>
+            </article>
+          `;
+        })
+        .join("");
+    }
+
+    // Filter Services by Category Tab
+    function filterServices(category) {
+      currentFilter = category;
+
+      document.querySelectorAll(".service-tab").forEach(btn => {
+        btn.classList.remove("bg-maroon", "text-white", "shadow-md");
+        btn.classList.add("bg-white", "text-slateDark", "border", "border-champagne/35");
+      });
+
+      const activeBtn = document.getElementById(`tab-${category}`);
+      if (activeBtn) {
+        activeBtn.classList.remove("bg-white", "text-slateDark", "border", "border-champagne/35");
+        activeBtn.classList.add("bg-maroon", "text-white", "shadow-md");
+      }
+
+      renderServices();
+    }
+
+    // Gallery Filter
+    function filterGallery(cat) {
+      const items = document.querySelectorAll('.gallery-item');
+      const tabs = document.querySelectorAll('.gallery-tab');
+
+      tabs.forEach(tab => {
+        tab.classList.remove('bg-champagne', 'text-royal', 'font-bold');
+        tab.classList.add('bg-white/10', 'text-white');
+      });
+      event.target.classList.remove('bg-white/10', 'text-white');
+      event.target.classList.add('bg-champagne', 'text-royal', 'font-bold');
+
+      items.forEach(item => {
+        if (cat === 'all' || item.getAttribute('data-cat') === cat) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // Accordion Toggle for Why Us
+    function toggleFaq(index) {
+      const content = document.getElementById(`faq-content-${index}`);
+      const icon = document.getElementById(`faq-icon-${index}`);
+
+      if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        icon.innerText = '−';
+      } else {
+        content.classList.add('hidden');
+        icon.innerText = '+';
+      }
+    }
+
+    // Animated Numbers Counter for Hero Stats
+    function animateCounters() {
+      const counters = document.querySelectorAll('.counter');
+      counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        let count = 0;
+        const speed = target / 40;
+
+        const updateCount = () => {
+          count += speed;
+          if (count < target) {
+            counter.innerText = Math.ceil(count);
+            setTimeout(updateCount, 30);
+          } else {
+            counter.innerText = target;
+          }
+        };
+        updateCount();
+      });
+    }
+
+    // Handle Instant WhatsApp Inquiry Builder Form
+    function handleWhatsAppInquiry(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("inq-name").value.trim();
+      const eventType = document.getElementById("inq-type").value;
+      const guests = document.getElementById("inq-guests").value;
+      const date = document.getElementById("inq-date").value.trim();
+      const venue = document.getElementById("inq-venue").value.trim();
+
+      const messageLines = [
+        `*New Event Inquiry — Devki International* ✨`,
+        `Website: devkiinternational.co.in`,
+        `--------------------------------`,
+        `*Name / Org:* ${name}`,
+        `*Event Type:* ${eventType}`,
+        `*Guest Count:* ${guests}`,
+        date ? `*Preferred Date/Month:* ${date}` : null,
+        venue ? `*Kolkata Area / Venue:* ${venue}` : null,
+        `--------------------------------`,
+        `Please share your portfolio & consultation availability!`
+      ].filter(Boolean);
+
+      const url = `https://wa.me/${DEVKI_WHATSAPP_NUMBER}?text=${encodeURIComponent(
+        messageLines.join("\n")
+      )}`;
+
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
+
+    // Ambient Golden Particle Dust Canvas
+    function initCanvasParticles() {
+      const canvas = document.getElementById('ambient-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let width = canvas.width = canvas.offsetWidth;
+      let height = canvas.height = canvas.offsetHeight;
+
+      window.addEventListener('resize', () => {
+        width = canvas.width = canvas.offsetWidth;
+        height = canvas.height = canvas.offsetHeight;
+      });
+
+      const particles = [];
+      const particleCount = 35;
+
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          radius: Math.random() * 2 + 0.8,
+          alpha: Math.random() * 0.6 + 0.2,
+          speedY: Math.random() * -0.5 - 0.15,
+          speedX: (Math.random() - 0.5) * 0.3
+        });
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(229, 201, 133, ${p.alpha})`;
+          ctx.fill();
+
+          p.y += p.speedY;
+          p.x += p.speedX;
+
+          if (p.y < 0) {
+            p.y = height + 10;
+            p.x = Math.random() * width;
+          }
+          if (p.x < 0) p.x = width;
+          if (p.x > width) p.x = 0;
+        }
+
+        requestAnimationFrame(draw);
+      }
+      draw();
+    }
+
+    // Scroll Reveal Observer
+    function initScrollReveal() {
+      const reveals = document.querySelectorAll('.reveal-on-scroll');
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      reveals.forEach(el => observer.observe(el));
+    }
+
+    // Mobile Navigation Toggle
+    const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    mobileMenuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    function closeMobileMenu() {
+      mobileMenu.classList.add("hidden");
+    }
+
+    // Initial Render on DOM Load
+    window.addEventListener("DOMContentLoaded", () => {
+      renderServices();
+      initCanvasParticles();
+      initScrollReveal();
+      setTimeout(animateCounters, 300);
+    });
+  </script>
+</body>
+</html>
