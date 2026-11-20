@@ -1,0 +1,4 @@
+# GitHub App manifest configuration
+default_branch: main
+restricted_to_branches:
+  - main
