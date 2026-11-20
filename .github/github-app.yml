@@ -2,4 +2,4 @@
 default_branch: main
 restricted_to_branches:
   - main
-run: echo "no build script required"
+run: npm start
