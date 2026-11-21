@@ -190,6 +190,22 @@
       70% { box-shadow: 0 0 0 8px rgba(37, 211, 102, 0); }
       100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    #gallery-lightbox::backdrop {
+      background: rgba(14, 6, 11, 0.88);
+      backdrop-filter: blur(6px);
+    }
   </style>
 </head>
 <body class="antialiased selection:bg-maroon selection:text-white">
@@ -292,7 +308,7 @@
         </div>
 
         <!-- Mobile Menu Toggle -->
-        <button id="mobile-menu-btn" class="lg:hidden p-2.5 rounded-xl text-white hover:bg-white/10 focus:outline-none transition-colors" aria-label="Toggle Menu">
+        <button id="mobile-menu-btn" class="lg:hidden p-2.5 rounded-xl text-white hover:bg-white/10 focus:outline-none transition-colors" aria-label="Toggle Menu" aria-controls="mobile-menu" aria-expanded="false">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
@@ -517,6 +533,7 @@
         <button
           onclick="filterServices('all')"
           id="tab-all"
+          aria-pressed="true"
           class="service-tab px-6 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 bg-maroon text-white shadow-md transform hover:-translate-y-0.5"
         >
           All Services (6)
@@ -524,6 +541,7 @@
         <button
           onclick="filterServices('wedding')"
           id="tab-wedding"
+          aria-pressed="false"
           class="service-tab px-6 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 bg-white text-slateDark hover:bg-ivoryDark border border-champagne/35 transform hover:-translate-y-0.5"
         >
           Luxury Weddings &amp; Hospitality
@@ -531,6 +549,7 @@
         <button
           onclick="filterServices('corporate')"
           id="tab-corporate"
+          aria-pressed="false"
           class="service-tab px-6 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 bg-white text-slateDark hover:bg-ivoryDark border border-champagne/35 transform hover:-translate-y-0.5"
         >
           Corporate Events &amp; MICE
@@ -538,6 +557,7 @@
       </div>
 
       <!-- 6-Card Services Grid with Rich Hover Effects -->
+      <p id="services-results-count" class="mb-5 text-center text-xs font-medium text-mutedText" aria-live="polite"></p>
       <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Rendered cleanly by JS for interactive filtering & dynamic WhatsApp links -->
       </div>
@@ -565,9 +585,9 @@
 
         <!-- Filter Tags for Gallery -->
         <div class="flex flex-wrap gap-2">
-          <button onclick="filterGallery('all')" class="gallery-tab px-4 py-2 rounded-lg text-xs font-semibold bg-champagne text-royal font-bold transition">All Highlights</button>
-          <button onclick="filterGallery('weddings')" class="gallery-tab px-4 py-2 rounded-lg text-xs font-semibold bg-white/10 text-white hover:bg-white/20 transition">Weddings</button>
-          <button onclick="filterGallery('corporate')" class="gallery-tab px-4 py-2 rounded-lg text-xs font-semibold bg-white/10 text-white hover:bg-white/20 transition">Corporate &amp; Staging</button>
+          <button onclick="filterGallery('all', this)" aria-pressed="true" class="gallery-tab px-4 py-2 rounded-lg text-xs font-semibold bg-champagne text-royal font-bold transition">All Highlights</button>
+          <button onclick="filterGallery('weddings', this)" aria-pressed="false" class="gallery-tab px-4 py-2 rounded-lg text-xs font-semibold bg-white/10 text-white hover:bg-white/20 transition">Weddings</button>
+          <button onclick="filterGallery('corporate', this)" aria-pressed="false" class="gallery-tab px-4 py-2 rounded-lg text-xs font-semibold bg-white/10 text-white hover:bg-white/20 transition">Corporate &amp; Staging</button>
         </div>
       </div>
 
@@ -575,6 +595,7 @@
       <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Item 1 -->
         <div class="gallery-item group relative h-80 rounded-2xl overflow-hidden shadow-luxury border border-champagne/30" data-cat="weddings">
+          <button type="button" onclick="openGallery(0)" aria-label="View photo: Marquee Bengali Wedding at Taj Bengal" class="absolute right-4 top-4 z-10 rounded-full border border-white/40 bg-royal/80 px-3 py-2 text-xs font-bold text-white backdrop-blur transition hover:bg-champagne hover:text-royal focus:outline-none focus:ring-2 focus:ring-champagneLight">View photo</button>
           <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Royal Wedding Mandap Kolkata" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
           <div class="absolute inset-0 bg-gradient-to-t from-royal via-royal/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
           <div class="absolute bottom-5 left-5 right-5">
@@ -586,6 +607,7 @@
 
         <!-- Item 2 -->
         <div class="gallery-item group relative h-80 rounded-2xl overflow-hidden shadow-luxury border border-champagne/30" data-cat="corporate">
+          <button type="button" onclick="openGallery(1)" aria-label="View photo: Salt Lake Sector V Annual Tech Conclave" class="absolute right-4 top-4 z-10 rounded-full border border-white/40 bg-royal/80 px-3 py-2 text-xs font-bold text-white backdrop-blur transition hover:bg-champagne hover:text-royal focus:outline-none focus:ring-2 focus:ring-champagneLight">View photo</button>
           <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80" alt="Corporate Conclave Salt Lake" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
           <div class="absolute inset-0 bg-gradient-to-t from-royal via-royal/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
           <div class="absolute bottom-5 left-5 right-5">
@@ -597,6 +619,7 @@
 
         <!-- Item 3 -->
         <div class="gallery-item group relative h-80 rounded-2xl overflow-hidden shadow-luxury border border-champagne/30" data-cat="weddings">
+          <button type="button" onclick="openGallery(2)" aria-label="View photo: Heritage Rajbari Grand Sangeet Night" class="absolute right-4 top-4 z-10 rounded-full border border-white/40 bg-royal/80 px-3 py-2 text-xs font-bold text-white backdrop-blur transition hover:bg-champagne hover:text-royal focus:outline-none focus:ring-2 focus:ring-champagneLight">View photo</button>
           <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80" alt="Sangeet Night Lighting Kolkata" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
           <div class="absolute inset-0 bg-gradient-to-t from-royal via-royal/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
           <div class="absolute bottom-5 left-5 right-5">
@@ -608,6 +631,7 @@
 
         <!-- Item 4 -->
         <div class="gallery-item group relative h-80 rounded-2xl overflow-hidden shadow-luxury border border-champagne/30" data-cat="corporate">
+          <button type="button" onclick="openGallery(3)" aria-label="View photo: Biswa Bangla Auto Expo Showcase" class="absolute right-4 top-4 z-10 rounded-full border border-white/40 bg-royal/80 px-3 py-2 text-xs font-bold text-white backdrop-blur transition hover:bg-champagne hover:text-royal focus:outline-none focus:ring-2 focus:ring-champagneLight">View photo</button>
           <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=800&q=80" alt="Product Launch Exhibition Kolkata" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
           <div class="absolute inset-0 bg-gradient-to-t from-royal via-royal/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
           <div class="absolute bottom-5 left-5 right-5">
@@ -619,6 +643,7 @@
 
         <!-- Item 5 -->
         <div class="gallery-item group relative h-80 rounded-2xl overflow-hidden shadow-luxury border border-champagne/30" data-cat="weddings">
+          <button type="button" onclick="openGallery(4)" aria-label="View photo: ITC Royal Bengal Gala Reception" class="absolute right-4 top-4 z-10 rounded-full border border-white/40 bg-royal/80 px-3 py-2 text-xs font-bold text-white backdrop-blur transition hover:bg-champagne hover:text-royal focus:outline-none focus:ring-2 focus:ring-champagneLight">View photo</button>
           <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80" alt="Luxury Reception Banquet Setup" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
           <div class="absolute inset-0 bg-gradient-to-t from-royal via-royal/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
           <div class="absolute bottom-5 left-5 right-5">
@@ -630,6 +655,7 @@
 
         <!-- Item 6 -->
         <div class="gallery-item group relative h-80 rounded-2xl overflow-hidden shadow-luxury border border-champagne/30" data-cat="corporate">
+          <button type="button" onclick="openGallery(5)" aria-label="View photo: Corporate Excellence Recognition Night" class="absolute right-4 top-4 z-10 rounded-full border border-white/40 bg-royal/80 px-3 py-2 text-xs font-bold text-white backdrop-blur transition hover:bg-champagne hover:text-royal focus:outline-none focus:ring-2 focus:ring-champagneLight">View photo</button>
           <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80" alt="Awards Night Gala" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
           <div class="absolute inset-0 bg-gradient-to-t from-royal via-royal/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
           <div class="absolute bottom-5 left-5 right-5">
@@ -641,6 +667,23 @@
       </div>
     </div>
   </section>
+
+  <dialog id="gallery-lightbox" aria-label="Portfolio photo viewer" class="m-auto max-h-[92vh] w-[min(94vw,900px)] max-w-none rounded-3xl border border-champagne/40 bg-royal p-0 text-white shadow-2xl">
+    <div class="relative">
+      <button type="button" onclick="closeGallery()" aria-label="Close photo viewer" class="absolute right-4 top-4 z-10 rounded-full bg-royal/80 p-2 text-white transition hover:bg-champagne hover:text-royal focus:outline-none focus:ring-2 focus:ring-champagneLight">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+      </button>
+      <img id="gallery-lightbox-image" class="max-h-[70vh] w-full bg-royal object-contain" src="" alt="" />
+      <div class="flex items-center justify-between gap-4 p-5 sm:p-6">
+        <button type="button" onclick="changeGallery(-1)" aria-label="Previous photo" class="rounded-xl border border-champagne/40 px-4 py-2 text-sm font-bold text-champagneLight transition hover:bg-champagne hover:text-royal focus:outline-none focus:ring-2 focus:ring-champagneLight">← <span class="hidden sm:inline">Previous</span></button>
+        <div class="min-w-0 text-center">
+          <h3 id="gallery-lightbox-title" class="font-serif text-lg font-bold text-white sm:text-2xl"></h3>
+          <p id="gallery-lightbox-count" class="mt-1 text-xs text-white/60" aria-live="polite"></p>
+        </div>
+        <button type="button" onclick="changeGallery(1)" aria-label="Next photo" class="rounded-xl border border-champagne/40 px-4 py-2 text-sm font-bold text-champagneLight transition hover:bg-champagne hover:text-royal focus:outline-none focus:ring-2 focus:ring-champagneLight"><span class="hidden sm:inline">Next</span> →</button>
+      </div>
+    </div>
+  </dialog>
 
   <!-- ==================== 4. SIGNATURE EVENTS & WHY US + INSTANT WHATSAPP INQUIRY ==================== -->
   <section id="signature-events" class="py-24 bg-ivoryDark/70 border-y border-champagne/25 relative">
@@ -937,7 +980,7 @@
             </a>
 
             <a
-              href="https://www.google.com/maps/dir/?api=1&destination=18%2C%20Block-B%2C%20341%2C%20Hatiara%20Road%2C%20Pachimpara%2C%20New%20Town%2C%20Kolkata%2C%20West%20Bengal%20700157"
+              href="https://www.google.com/maps/dir/?api=1&destination=22.6180625%2C88.4408125"
               target="_blank"
               rel="noopener noreferrer"
               class="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-royal hover:bg-maroon text-white font-semibold text-sm transition"
@@ -951,7 +994,7 @@
         <div class="lg:col-span-7 relative rounded-3xl overflow-hidden shadow-luxury border border-champagne/40 bg-ivoryDark p-2 min-h-[380px] sm:min-h-[440px]">
           <iframe
             title="Devki International New Town Kolkata Office - Google Maps"
-            src="https://maps.google.com/maps?q=18%2C%20Block-B%2C%20341%2C%20Hatiara%20Road%2C%20Pachimpara%2C%20New%20Town%2C%20Kolkata%2C%20West%20Bengal%20700157&t=&z=18&ie=UTF8&iwloc=A&output=embed"
+            src="https://maps.google.com/maps?q=22.6180625%2C88.4408125&t=&z=18&ie=UTF8&iwloc=A&output=embed"
             width="100%"
             height="100%"
             class="rounded-2xl"
@@ -1122,6 +1165,7 @@
     ];
 
     let currentFilter = "all";
+    let activeGalleryIndex = 0;
 
     // Render Service Cards with enhanced hover micro-interactions
     function renderServices() {
@@ -1129,6 +1173,8 @@
       const filtered = SERVICES.filter(service =>
         currentFilter === "all" ? true : service.category === currentFilter
       );
+      document.getElementById("services-results-count").textContent =
+        `Showing ${filtered.length} ${currentFilter === "all" ? "services" : `${currentFilter} services`}`;
 
       grid.innerHTML = filtered
         .map(service => {
@@ -1204,6 +1250,8 @@
       currentFilter = category;
 
       document.querySelectorAll(".service-tab").forEach(btn => {
+        const isActive = btn.id === `tab-${category}`;
+        btn.setAttribute("aria-pressed", String(isActive));
         btn.classList.remove("bg-maroon", "text-white", "shadow-md");
         btn.classList.add("bg-white", "text-slateDark", "border", "border-champagne/35");
       });
@@ -1218,24 +1266,50 @@
     }
 
     // Gallery Filter
-    function filterGallery(cat) {
+    function filterGallery(cat, activeTab) {
       const items = document.querySelectorAll('.gallery-item');
       const tabs = document.querySelectorAll('.gallery-tab');
 
       tabs.forEach(tab => {
+        const isActive = tab === activeTab;
+        tab.setAttribute('aria-pressed', String(isActive));
         tab.classList.remove('bg-champagne', 'text-royal', 'font-bold');
         tab.classList.add('bg-white/10', 'text-white');
       });
-      event.target.classList.remove('bg-white/10', 'text-white');
-      event.target.classList.add('bg-champagne', 'text-royal', 'font-bold');
+      activeTab.classList.remove('bg-white/10', 'text-white');
+      activeTab.classList.add('bg-champagne', 'text-royal', 'font-bold');
 
       items.forEach(item => {
-        if (cat === 'all' || item.getAttribute('data-cat') === cat) {
-          item.style.display = 'block';
-        } else {
-          item.style.display = 'none';
-        }
+        item.hidden = cat !== 'all' && item.getAttribute('data-cat') !== cat;
       });
+    }
+
+    // Accessible portfolio lightbox
+    function openGallery(index) {
+      activeGalleryIndex = index;
+      updateGalleryLightbox();
+      document.getElementById('gallery-lightbox').showModal();
+    }
+
+    function changeGallery(direction) {
+      const items = document.querySelectorAll('.gallery-item');
+      activeGalleryIndex = (activeGalleryIndex + direction + items.length) % items.length;
+      updateGalleryLightbox();
+    }
+
+    function updateGalleryLightbox() {
+      const item = document.querySelectorAll('.gallery-item')[activeGalleryIndex];
+      const image = item.querySelector('img');
+      document.getElementById('gallery-lightbox-image').src = image.currentSrc || image.src;
+      document.getElementById('gallery-lightbox-image').alt = image.alt;
+      document.getElementById('gallery-lightbox-title').textContent =
+        item.querySelector('h4').textContent;
+      document.getElementById('gallery-lightbox-count').textContent =
+        `${activeGalleryIndex + 1} of ${document.querySelectorAll('.gallery-item').length}`;
+    }
+
+    function closeGallery() {
+      document.getElementById('gallery-lightbox').close();
     }
 
     // Accordion Toggle for Why Us
@@ -1376,11 +1450,14 @@
     const mobileMenu = document.getElementById("mobile-menu");
 
     mobileMenuBtn.addEventListener("click", () => {
-      mobileMenu.classList.toggle("hidden");
+      const isExpanded = mobileMenuBtn.getAttribute("aria-expanded") === "true";
+      mobileMenuBtn.setAttribute("aria-expanded", String(!isExpanded));
+      mobileMenu.classList.toggle("hidden", isExpanded);
     });
 
     function closeMobileMenu() {
       mobileMenu.classList.add("hidden");
+      mobileMenuBtn.setAttribute("aria-expanded", "false");
     }
 
     // Initial Render on DOM Load
@@ -1389,6 +1466,15 @@
       initCanvasParticles();
       initScrollReveal();
       setTimeout(animateCounters, 300);
+
+      const lightbox = document.getElementById('gallery-lightbox');
+      lightbox.addEventListener('click', event => {
+        if (event.target === lightbox) closeGallery();
+      });
+      lightbox.addEventListener('keydown', event => {
+        if (event.key === 'ArrowLeft') changeGallery(-1);
+        if (event.key === 'ArrowRight') changeGallery(1);
+      });
     });
   </script>
 </body>
