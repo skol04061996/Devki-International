@@ -126,6 +126,37 @@
       transform: rotate(25deg);
       animation: btnShine 4s infinite ease-in-out;
     }
+    .floating-radar {
+      --radar-color: 37, 211, 102;
+      isolation: isolate;
+    }
+    .floating-radar::before,
+    .floating-radar::after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      border: 2px solid rgba(var(--radar-color), 0.65);
+      border-radius: 9999px;
+      pointer-events: none;
+      animation: radarPulse 2.4s ease-out infinite;
+    }
+    .floating-radar::after {
+      animation-delay: 1.2s;
+    }
+    .floating-radar-telegram {
+      --radar-color: 0, 136, 204;
+    }
+    @keyframes radarPulse {
+      0% { opacity: 0.75; transform: scale(1); }
+      100% { opacity: 0; transform: scale(1.9); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .floating-radar::before,
+      .floating-radar::after {
+        animation: none;
+      }
+    }
     @keyframes btnShine {
       0% { left: -70%; }
       30%, 100% { left: 150%; }
@@ -185,6 +216,45 @@
       box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
       animation: livePulse 2s infinite;
     }
+
+    .hero-enter {
+      animation: heroEnter 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .hero-enter-delay {
+      animation: heroEnter 0.9s 0.15s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .cta-pulse {
+      box-shadow: 0 12px 35px -12px rgba(37, 211, 102, 0.75);
+      animation: ctaPulse 2.8s ease-in-out infinite;
+    }
+
+    .nav-active span {
+      width: 100%;
+    }
+
+    #scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      z-index: 9999;
+      background: linear-gradient(90deg, #C8A252, #FFF0C7, #25D366);
+      box-shadow: 0 0 12px rgba(200, 162, 82, 0.65);
+    }
+
+    @keyframes heroEnter {
+      from { opacity: 0; transform: translateY(22px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes ctaPulse {
+      0%, 100% { box-shadow: 0 12px 35px -12px rgba(37, 211, 102, 0.75); }
+      50% { box-shadow: 0 16px 42px -10px rgba(37, 211, 102, 0.95); }
+    }
+
     @keyframes livePulse {
       0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
       70% { box-shadow: 0 0 0 8px rgba(37, 211, 102, 0); }
@@ -206,9 +276,34 @@
       background: rgba(14, 6, 11, 0.88);
       backdrop-filter: blur(6px);
     }
+
+    #telegram-chat-popup,
+    #whatsapp-chat-popup {
+      position: fixed;
+      inset: auto 24px 148px auto;
+      width: min(360px, calc(100vw - 32px));
+      max-width: none;
+      max-height: calc(100vh - 180px);
+      margin: 0;
+    }
+
+    #telegram-chat-popup::backdrop,
+    #whatsapp-chat-popup::backdrop {
+      background: transparent;
+    }
+
+    @media (max-width: 480px) {
+      #telegram-chat-popup,
+      #whatsapp-chat-popup {
+        inset-inline: 16px;
+        bottom: 144px;
+        width: auto;
+      }
+    }
   </style>
 </head>
 <body class="antialiased selection:bg-maroon selection:text-white">
+  <div id="scroll-progress" aria-hidden="true"></div>
 
   <!-- ==================== LIVE ANNOUNCEMENT TOP BANNER ==================== -->
   <aside aria-label="Seasonal Booking Offer" class="bg-gradient-to-r from-maroon via-royal to-emeraldDeep text-white text-xs py-2 px-4 border-b border-champagne/30 overflow-hidden relative z-50">
@@ -368,11 +463,11 @@
             <span class="font-medium text-white/90">Devki International</span>
           </div>
 
-          <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.12] tracking-tight text-white">
+          <h1 class="hero-enter font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.12] tracking-tight text-white">
             Crafting Unforgettable <span class="gold-text-gradient italic">Weddings</span> &amp; Flawless <span class="gold-text-gradient italic">Corporate Summits</span> in Kolkata.
           </h1>
 
-          <p class="text-base sm:text-lg text-white/85 leading-relaxed max-w-2xl font-light">
+          <p class="hero-enter-delay text-base sm:text-lg text-white/85 leading-relaxed max-w-2xl font-light">
             From regal Bengali &amp; Marwari weddings at Taj Bengal &amp; heritage Rajbaris to high-impact corporate conclaves across Salt Lake Sector V and New Town—<strong>Devki International</strong> brings visionary design, turnkey production, and discreet VIP hospitality.
           </p>
 
@@ -382,7 +477,7 @@
               href="https://wa.me/918910988797?text=Hello%20Devki%20International%20(devkiinternational.co.in)!%20I%20would%20like%20a%20consultation%20for%20an%20event%20in%20Kolkata."
               target="_blank"
               rel="noopener noreferrer"
-              class="btn-shimmer inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-whatsapp hover:bg-whatsappDark text-white font-bold text-base shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1"
+              class="cta-pulse btn-shimmer inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-whatsapp hover:bg-whatsappDark text-white font-bold text-base shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1"
             >
               <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
                 <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/>
@@ -1073,45 +1168,89 @@
   </footer>
 
   <!-- ==================== 7. FLOATING WHATSAPP ACTION BUTTON ==================== -->
-  <div class="fixed bottom-6 right-6 z-50 flex items-center gap-3 group">
-    <!-- Tooltip Pill -->
-    <a
-      href="https://wa.me/918910988797?text=Hello%20Devki%20International%20(devkiinternational.co.in)!%20I%20would%20like%20to%20inquire%20about%20an%20event%20in%20Kolkata."
-      target="_blank"
-      rel="noopener noreferrer"
-      class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-royal/95 text-white text-xs font-bold shadow-xl border border-champagne/40 backdrop-blur-md opacity-95 group-hover:opacity-100 transition-all transform group-hover:-translate-x-1"
-    >
-      <span class="w-2 h-2 rounded-full bg-emerald-400 live-dot"></span>
-      <span>Chat with Event Planner</span>
-    </a>
-
+  <div class="floating-radar fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center gap-3 group">
     <!-- Floating Action Button -->
-    <a
-      href="https://wa.me/918910988797?text=Hello%20Devki%20International%20(devkiinternational.co.in)!%20I%20would%20like%20to%20inquire%20about%20an%20event%20in%20Kolkata."
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Chat with Devki International on WhatsApp"
-      class="btn-shimmer relative w-15 h-15 p-4 rounded-full bg-whatsapp hover:bg-whatsappDark text-white flex items-center justify-center shadow-2xl transition-transform transform hover:scale-110 active:scale-95"
+    <button
+      type="button"
+      onclick="openWhatsAppPopup()"
+      aria-label="Open Devki International WhatsApp chat options"
+      aria-haspopup="dialog"
+      aria-controls="whatsapp-chat-popup"
+      class="btn-shimmer relative inline-flex h-14 w-14 items-center justify-center rounded-full bg-whatsapp text-white shadow-xl ring-2 ring-white/70 transition-all duration-200 hover:scale-110 hover:bg-whatsappDark hover:shadow-[0_0_26px_rgba(37,211,102,0.65)] active:scale-95 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-whatsapp/40"
     >
-      <span class="absolute inset-0 rounded-full bg-whatsapp animate-ping opacity-30 pointer-events-none"></span>
-      <svg class="w-7 h-7 fill-current relative z-10" viewBox="0 0 24 24">
+      <span class="absolute inset-0 rounded-full bg-whatsapp animate-ping opacity-20 pointer-events-none"></span>
+      <svg class="relative z-10 h-7 w-7 fill-current" viewBox="0 0 24 24">
         <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/>
       </svg>
-    </a>
+    </button>
   </div>
 
   <!-- Telegram AI Assistant -->
-  <a
-    href="https://t.me/devki_international_bot?start=website"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Chat with Devki International AI on Telegram"
-    class="fixed bottom-[92px] right-6 z-[60] inline-flex h-11 w-11 items-center justify-center rounded-full bg-[#0088cc] text-white shadow-[0_6px_20px_rgba(0,136,204,0.35)] transition-all hover:-translate-y-1 hover:bg-[#0077b5] hover:shadow-[0_8px_24px_rgba(0,136,204,0.45)]"
-  >
-    <svg class="h-5 w-5 shrink-0 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-    </svg>
-  </a>
+  <div class="floating-radar floating-radar-telegram fixed bottom-[92px] right-6 z-[60] h-14 w-14">
+    <button
+      type="button"
+      onclick="openTelegramPopup()"
+      aria-label="Open Devki International AI chat options"
+      aria-haspopup="dialog"
+      aria-controls="telegram-chat-popup"
+      class="btn-shimmer relative inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#0088cc] text-white shadow-xl ring-2 ring-white/70 transition-all duration-200 hover:scale-110 hover:bg-[#0077b5] hover:shadow-[0_0_26px_rgba(0,136,204,0.7)] active:scale-95 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#0088cc]/40"
+    >
+      <span class="absolute inset-0 rounded-full bg-[#0088cc] animate-ping opacity-20 pointer-events-none"></span>
+      <svg class="relative z-10 h-7 w-7 shrink-0 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+      </svg>
+    </button>
+  </div>
+
+  <dialog id="telegram-chat-popup" aria-labelledby="telegram-chat-title" aria-describedby="telegram-chat-description" class="overflow-hidden rounded-3xl border border-[#0088cc]/30 bg-white p-0 text-royal shadow-2xl">
+    <div class="flex items-center justify-between bg-gradient-to-r from-[#0077b5] to-[#0088cc] px-5 py-4 text-white">
+      <div class="flex items-center gap-3">
+        <span class="flex h-10 w-10 items-center justify-center rounded-full bg-white/15">
+          <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+          </svg>
+        </span>
+        <div>
+          <h2 id="telegram-chat-title" class="font-bold">Devki AI Assistant</h2>
+          <p class="flex items-center gap-1.5 text-xs text-white/80"><span class="h-1.5 w-1.5 rounded-full bg-emerald-300"></span>Available on Telegram</p>
+        </div>
+      </div>
+      <button type="button" onclick="closeTelegramPopup()" aria-label="Close chat options" class="rounded-full p-2 text-white/80 transition hover:bg-white/15 hover:text-white focus:outline-none focus:ring-2 focus:ring-white">
+        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+      </button>
+    </div>
+    <div class="space-y-4 p-5">
+      <p id="telegram-chat-description" class="text-sm leading-relaxed text-mutedText">Need ideas or help planning your event? Chat with our AI assistant for quick answers, then connect with our team whenever you’re ready.</p>
+      <a href="https://t.me/devki_international_bot?start=website" target="_blank" rel="noopener noreferrer" class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#0088cc] px-4 py-3 text-sm font-bold text-white shadow-md transition hover:bg-[#0077b5] focus:outline-none focus:ring-2 focus:ring-[#0088cc] focus:ring-offset-2">
+        <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        Start chat in Telegram
+      </a>
+    </div>
+  </dialog>
+
+  <dialog id="whatsapp-chat-popup" aria-labelledby="whatsapp-chat-title" aria-describedby="whatsapp-chat-description" class="overflow-hidden rounded-3xl border border-whatsapp/30 bg-white p-0 text-royal shadow-2xl">
+    <div class="flex items-center justify-between bg-gradient-to-r from-[#128c4a] to-whatsapp px-5 py-4 text-white">
+      <div class="flex items-center gap-3">
+        <span class="flex h-10 w-10 items-center justify-center rounded-full bg-white/15">
+          <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
+        </span>
+        <div>
+          <h2 id="whatsapp-chat-title" class="font-bold">Chat with our event team</h2>
+          <p class="flex items-center gap-1.5 text-xs text-white/80"><span class="h-1.5 w-1.5 rounded-full bg-emerald-200"></span>WhatsApp support</p>
+        </div>
+      </div>
+      <button type="button" onclick="closeWhatsAppPopup()" aria-label="Close WhatsApp chat options" class="rounded-full p-2 text-white/80 transition hover:bg-white/15 hover:text-white focus:outline-none focus:ring-2 focus:ring-white">
+        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+      </button>
+    </div>
+    <div class="space-y-4 p-5">
+      <p id="whatsapp-chat-description" class="text-sm leading-relaxed text-mutedText">Tell us about your wedding or corporate event. Our team can help with ideas, availability, and a tailored quote.</p>
+      <a href="https://wa.me/918910988797?text=Hello%20Devki%20International%20(devkiinternational.co.in)!%20I%20would%20like%20to%20inquire%20about%20an%20event%20in%20Kolkata." target="_blank" rel="noopener noreferrer" class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-whatsapp px-4 py-3 text-sm font-bold text-white shadow-md transition hover:bg-whatsappDark focus:outline-none focus:ring-2 focus:ring-whatsapp focus:ring-offset-2">
+        <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
+        Start chat in WhatsApp
+      </a>
+    </div>
+  </dialog>
 
   <!-- ==================== JAVASCRIPT LOGIC ==================== -->
   <script>
@@ -1469,11 +1608,64 @@
       mobileMenuBtn.setAttribute("aria-expanded", "false");
     }
 
+    function openTelegramPopup() {
+      document.getElementById("telegram-chat-popup").showModal();
+    }
+
+    function closeTelegramPopup() {
+      document.getElementById("telegram-chat-popup").close();
+    }
+
+    function openWhatsAppPopup() {
+      document.getElementById("whatsapp-chat-popup").showModal();
+    }
+
+    function closeWhatsAppPopup() {
+      document.getElementById("whatsapp-chat-popup").close();
+    }
+
+    function initScrollProgress() {
+      const progress = document.getElementById("scroll-progress");
+      const updateProgress = () => {
+        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        const percent = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+        progress.style.width = `${Math.min(100, Math.max(0, percent))}%`;
+      };
+      window.addEventListener("scroll", updateProgress, { passive: true });
+      updateProgress();
+    }
+
+    function initActiveNavigation() {
+      const sections = ["home", "what-we-offer", "portfolio-gallery", "signature-events", "location"]
+        .map(id => document.getElementById(id))
+        .filter(Boolean);
+      const desktopLinks = document.querySelectorAll("header nav a[href^='#']");
+
+      const observer = new IntersectionObserver(entries => {
+        const visible = entries
+          .filter(entry => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (!visible) return;
+
+        desktopLinks.forEach(link => {
+          const underline = link.querySelector("span");
+          const isActive = link.getAttribute("href") === `#${visible.target.id}`;
+          link.classList.toggle("text-champagneLight", isActive);
+          link.classList.toggle("nav-active", isActive);
+          if (underline) underline.classList.toggle("w-full", isActive);
+        });
+      }, { rootMargin: "-20% 0px -55%", threshold: [0.15, 0.35, 0.6] });
+
+      sections.forEach(section => observer.observe(section));
+    }
+
     // Initial Render on DOM Load
     window.addEventListener("DOMContentLoaded", () => {
       renderServices();
       initCanvasParticles();
       initScrollReveal();
+      initScrollProgress();
+      initActiveNavigation();
       setTimeout(animateCounters, 300);
 
       const lightbox = document.getElementById('gallery-lightbox');
@@ -1483,6 +1675,16 @@
       lightbox.addEventListener('keydown', event => {
         if (event.key === 'ArrowLeft') changeGallery(-1);
         if (event.key === 'ArrowRight') changeGallery(1);
+      });
+
+      const telegramPopup = document.getElementById("telegram-chat-popup");
+      telegramPopup.addEventListener("click", event => {
+        if (event.target === telegramPopup) closeTelegramPopup();
+      });
+
+      const whatsAppPopup = document.getElementById("whatsapp-chat-popup");
+      whatsAppPopup.addEventListener("click", event => {
+        if (event.target === whatsAppPopup) closeWhatsAppPopup();
       });
     });
   </script>
