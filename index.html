@@ -557,7 +557,6 @@
       </div>
 
       <!-- 6-Card Services Grid with Rich Hover Effects -->
-      <p id="services-results-count" class="mb-5 text-center text-xs font-medium text-mutedText" aria-live="polite"></p>
       <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Rendered cleanly by JS for interactive filtering & dynamic WhatsApp links -->
       </div>
@@ -1186,9 +1185,6 @@
       const filtered = SERVICES.filter(service =>
         currentFilter === "all" ? true : service.category === currentFilter
       );
-      document.getElementById("services-results-count").textContent =
-        `Showing ${filtered.length} ${currentFilter === "all" ? "services" : `${currentFilter} services`}`;
-
       grid.innerHTML = filtered
         .map(service => {
           const prefilledText = encodeURIComponent(
